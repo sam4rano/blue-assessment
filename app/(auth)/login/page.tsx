@@ -1,16 +1,17 @@
+import Login from "@/app/containers/auth/Login";
 import AuthCustomized from "@/components/AuthCustomized";
 import Footer from "@/components/Footer";
-import Login from "./containers/auth/Login";
+import React from "react";
 
-
-
-export default function Home() {
+const page = () => {
   return (
     <AuthCustomized
-      
+    
     >
       <Login />
       <Footer />
     </AuthCustomized>
   );
-}
+};
+
+export default page;
