@@ -21,18 +21,26 @@ const Login: React.FC = () => {
 
   const router = useRouter();
 
-  const { mutateAsync, isError, isSuccess, isPending } = useMutation({
+  const { mutateAsync, isError, isSuccess, isPending, error } = useMutation({
     mutationKey: ["login-key"],
     mutationFn: loginUser,
     onSuccess(data) {
       router.push("/dashboard");
-      toast.success(data || "login successful");
-      console.log("login successfully:", data);
+      toast.success(data?.message || "Login successful");
     },
     onError: (error: any) => {
-      toast.error("OTP verification failed:", error);
+      toast.error(error?.response?.data?.message || "Login failed. Please try again.");
     },
+    
   });
+
+  const validateForm = () => {
+    if (!loginData.username || !loginData.password) {
+      toast.error("Username and Password are required.");
+      return false;
+    }
+    return true;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,6 +49,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
     mutateAsync(loginData);
   };
 
@@ -109,15 +118,18 @@ const Login: React.FC = () => {
               className="block w-full pl-10 pr-10 px-4 py-2 h-12 border-[1px] border-border_grey rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
 
-            {isError && (
-              <p className="text-sm text-red-500">
-                Failed to verify OTP. Please try again.
-              </p>
-            )}
+          
+
+{isError && (
+  <p className="text-sm text-red-500">
+    {error?.response?.data?.message || "Login failed. Please try again."}
+  </p>
+)}
+
 
             {isSuccess && (
               <p className="text-sm text-green-500">
-                OTP verified successfully! Redirecting...
+                login is successful! Redirecting...
               </p>
             )}
             <button

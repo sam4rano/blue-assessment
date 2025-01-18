@@ -12,7 +12,7 @@ import React, { useState } from "react";
 const Otp: React.FC = () => {
   const [otp, setOtp] = useState("");
   const router = useRouter();
-  const { mutateAsync, isError, isSuccess, isPending } = useMutation({
+  const { mutateAsync, isError, isSuccess, isPending, error } = useMutation({
     mutationKey: ["otp-submit"],
     mutationFn: verifyOtp,
     onSuccess: (data) => {
@@ -66,10 +66,9 @@ const Otp: React.FC = () => {
 
         {isError && (
           <p className="text-sm text-red-500">
-            Failed to verify OTP. Please try again.
+            {error?.response?.data?.message || "Failed to verify OTP. Please try again."}
           </p>
         )}
-
         
         {isSuccess && (
           <p className="text-sm text-green-500">
