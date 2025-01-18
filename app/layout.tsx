@@ -5,6 +5,7 @@ import { Providers } from "./providers/Providers";
 
 const roboto = Roboto({
   weight: ["400", "700"],
+  style: ["normal", "italic"],
   variable: "--font-roboto",
   subsets: ["latin"],
   display: "swap",

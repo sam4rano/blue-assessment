@@ -56,9 +56,9 @@ const Sidebar = () => {
                 {data.items.map((subItem) => (
                   <li
                     key={subItem.id}
-                    className={`p-2 rounded-lg cursor-pointer ${
+                    className={`p-2 rounded-lg cursor-pointer text-sm ${
                       isActive(subItem.path)
-                        ? "bg-blue-500 text-white"
+                        ? "bg-blue-500 italic text-white"
                         : "text-gray-600 hover:bg-blue-100"
                     }`}
                     onClick={() => handleNavigate(subItem.path)}

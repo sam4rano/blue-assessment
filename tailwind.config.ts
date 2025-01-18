@@ -11,11 +11,13 @@ export default {
     extend: {
       colors: {
         brand_primary: "#055DAE",
+		brand_color_fill:"#0F3677",
         brand_primary_inverse: "#D2EAFF",
         brand_dark: "#052B4E",
         brand_green: "#D9F2EB",
         brand_green_text: "#28715C",
         primary_light: "#B0C4DE",
+		
         primary_lighter: "#F9FAFB",
         color_white: "#FFFFFF",
         color_off_white: "#F5F5F5",

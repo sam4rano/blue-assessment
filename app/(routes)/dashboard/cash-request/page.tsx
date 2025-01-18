@@ -1,3 +1,5 @@
+import BranchDetails from '@/app/containers/cash-request/BranchDetails'
+import ContentHeader from '@/app/containers/cash-request/ContentHeader'
 import Navbar from '@/app/containers/dashboard/Navbar'
 import Sidebar from '@/app/containers/dashboard/Sidebar'
 import React from 'react'
@@ -11,7 +13,10 @@ const page = () => {
 
     <Sidebar />
     </div>
-    <div className='w-full '>cash request container</div>
+    <div className='w-full '>
+		<ContentHeader />
+		<BranchDetails branchId={1} />
+	</div>
   </div>
     </>
   )
