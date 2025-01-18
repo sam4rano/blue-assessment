@@ -1,36 +1,46 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import { loginUser } from "@/app/api/useApi";
+import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import {
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RiLockPasswordLine, RiUser3Line } from "react-icons/ri";
-
+import { toast } from "react-toastify";
 
 const Login: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [loginData, setLoginData] = useState({
     username: "",
     password: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const router = useRouter()
+  const router = useRouter();
+
+  const { mutateAsync, isError, isSuccess, isPending } = useMutation({
+    mutationKey: ["login-key"],
+    mutationFn: loginUser,
+    onSuccess(data) {
+      router.push("/dashboard");
+      toast.success(data || "login successful");
+      console.log("login successfully:", data);
+    },
+    onError: (error: any) => {
+      toast.error("OTP verification failed:", error);
+    },
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setLoginData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-	router.push('/otp')
-    console.log("Form Data:", formData);
-    // Perform login logic here
+    mutateAsync(loginData);
   };
 
   return (
@@ -39,10 +49,10 @@ const Login: React.FC = () => {
         <Image
           src={"/svg/CashDark.svg"}
           alt="logo image"
-		  className=" w-auto h-auto"
+          className=" w-auto h-auto"
           width={120}
           height={70}
-		  priority
+          priority
         />
       </div>
 
@@ -53,7 +63,7 @@ const Login: React.FC = () => {
         <h2 className="text-[32px] leading-[44.8px] font-bold  text-brand_dark">
           Log In
         </h2>
-        {/* Username Field */}
+
         <div className="">
           <label
             htmlFor="username"
@@ -69,7 +79,7 @@ const Login: React.FC = () => {
               type="text"
               id="username"
               name="username"
-              value={formData.username}
+              value={loginData.username}
               onChange={handleChange}
               placeholder="Your email address or Username"
               className="block w-full pl-10 px-4 h-12 py-2 border-[1px] rounded-[5px] border-border_grey focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -77,7 +87,6 @@ const Login: React.FC = () => {
           </div>
         </div>
 
-        {/* Password Field */}
         <div className="">
           <label
             htmlFor="password"
@@ -87,18 +96,29 @@ const Login: React.FC = () => {
           </label>
           <div className="relative mt-1">
             <span className="absolute inset-y-0 left-2 flex items-center text-gray-500">
-              <RiLockPasswordLine 
-			  className="w-5 h-5" />
+              <RiLockPasswordLine className="w-5 h-5" />
             </span>
             <input
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              value={formData.password}
+              value={loginData.password}
               onChange={handleChange}
               placeholder="Enter your password"
               className="block w-full pl-10 pr-10 px-4 py-2 h-12 border-[1px] border-border_grey rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
+
+            {isError && (
+              <p className="text-sm text-red-500">
+                Failed to verify OTP. Please try again.
+              </p>
+            )}
+
+            {isSuccess && (
+              <p className="text-sm text-green-500">
+                OTP verified successfully! Redirecting...
+              </p>
+            )}
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -113,20 +133,22 @@ const Login: React.FC = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <div className="">
           <button
             type="submit"
-            className="w-full px-8 py-3 text-white bg-brand_primary rounded-[15px] hover:bg-[#055DB4] focus:outline-none"
+            disabled={isPending}
+            className={`w-full px-8 py-3 text-white bg-brand_primary rounded-[15px] hover:bg-[#055DB4] focus:outline-none ${
+              isPending ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Log In
+            {isPending ? "submitting..." : "Log In"}
           </button>
         </div>
 
-        {/* Forgot Password */}
         <div className="text-sm text-center text-gray-600">
           <Link href="/forgot-password" className="">
-            Forgot your Password? <span className="pr-1 text-brand_primary underline">Get Help</span>
+            Forgot your Password?{" "}
+            <span className="pr-1 text-brand_primary underline">Get Help</span>
           </Link>
         </div>
       </form>

@@ -1,9 +1,27 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
+import { verifyOtp } from "@/app/api/useApi";
+import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+
 const Otp: React.FC = () => {
   const [otp, setOtp] = useState("");
+  const router = useRouter();
+  const { mutateAsync, isError, isSuccess, isPending } = useMutation({
+    mutationKey: ["otp-submit"],
+    mutationFn: verifyOtp,
+    onSuccess: (data) => {
+      router.push("/dashboard");
+      console.log("OTP verified successfully:", data);
+    },
+    onError: (error: any) => {
+      console.error("OTP verification failed:", error);
+    },
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOtp(e.target.value);
@@ -11,8 +29,7 @@ const Otp: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("OTP Submitted:", otp);
-   
+    mutateAsync({ otp }); 
   };
 
   return (
@@ -31,11 +48,7 @@ const Otp: React.FC = () => {
         onSubmit={handleSubmit}
         className="max-w-[470px] w-full flex flex-col gap-y-4 bg-white rounded-[15px] shadow-lg p-6"
       >
-        <h2 className="text-xl font-bold  text-brand_dark">
-          Enter the OTP sent to your email
-        </h2>
-
-        {/* OTP Field */}
+        <h2 className="text-xl font-bold  text-brand_dark">Enter your OTP</h2>
         <div className="mb-4">
           <div className="relative mt-1">
             <input
@@ -50,17 +63,32 @@ const Otp: React.FC = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
+        {isError && (
+          <p className="text-sm text-red-500">
+            Failed to verify OTP. Please try again.
+          </p>
+        )}
+
+        
+        {isSuccess && (
+          <p className="text-sm text-green-500">
+            OTP verified successfully! Redirecting...
+          </p>
+        )}
+
         <div className="mb-4">
           <button
             type="submit"
-            className="w-full px-8 py-3 text-white bg-brand_primary rounded-[15px] hover:bg-[#055DB4] focus:outline-none"
+            disabled={isPending}
+            className={`w-full px-8 py-3 text-white bg-brand_primary rounded-[15px] hover:bg-[#055DB4] focus:outline-none ${
+              isPending ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Verify OTP
+            {isPending ? "Verifying..." : "Verify OTP"}
           </button>
         </div>
 
-        {/* Resend OTP */}
+        
         <div className="text-sm text-center text-gray-600">
           Didn’t receive the code?{" "}
           <Link href="#" className="text-blue-500 hover:underline">
