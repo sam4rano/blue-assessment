@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { FC } from "react";
 import { HiOutlineFilter } from "react-icons/hi";
 
-const ContentHeader: React.FC = () => {
+interface titleProps {
+	title:string
+	handleRoute: () => void
+  }
+
+const ContentHeader:FC<titleProps > = ({title, handleRoute}) => {
   return (
-    <div className="flex flex-row justify-between items-center w-full h-[156px] px-4">
+    <div className="flex flex-row justify-between items-center w-full h-[100px] px-4">
       {/* Title */}
-      <h1 className="text-4xl font-bold text-brand_dark font-roboto">Cash Request</h1>
+      <h1 className="text-4xl font-bold text-brand_dark font-roboto">{title}</h1>
 
       {/* Actions */}
       <div className="flex gap-4">
@@ -19,6 +24,7 @@ const ContentHeader: React.FC = () => {
           Filter
         </button>
         <button
+		onClick={handleRoute}
           className="px-4 py-2 bg-brand_primary text-white rounded-[15px] hover:bg-blue-400"
         >
           New Request

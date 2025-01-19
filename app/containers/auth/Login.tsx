@@ -47,10 +47,13 @@ const Login: React.FC = () => {
     setLoginData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit  = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+    const res = await 
     mutateAsync(loginData);
+    
+    console.log("data",loginData)
   };
 
   return (

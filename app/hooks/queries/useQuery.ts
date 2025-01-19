@@ -20,7 +20,7 @@ const queryDefaults = {
 };
 
 // Branch Queries
-export const useBranchQuery = (id: number) => {
+export const useBranchQuery = (id: string) => {
   return useQuery({
     queryKey: ["branch", id],
     queryFn: () => fetchBranchById(id),
@@ -29,7 +29,7 @@ export const useBranchQuery = (id: number) => {
   });
 };
 
-export const useBranchDetailsQuery = (id: number) => {
+export const useBranchDetailsQuery = (id: string) => {
   return useQuery({
     queryKey: ["branchDetails", id],
     queryFn: () => fetchBranchDetails(id),
@@ -49,7 +49,7 @@ export const useCashRequestsQuery = (filters: Filters = {}) => {
   });
 };
 
-export const useCashRequestByIdQuery = (id: number) => {
+export const useCashRequestByIdQuery = (id: string) => {
   return useQuery({
     queryKey: ["cashRequest", id],
     queryFn: () => fetchCashRequestById(id),
@@ -59,7 +59,7 @@ export const useCashRequestByIdQuery = (id: number) => {
 };
 
 // Currency Queries
-export const useCurrencyQuery = (id: number) => {
+export const useCurrencyQuery = (id: string) => {
   return useQuery({
     queryKey: ["currency", id],
     queryFn: () => fetchCurrencyById(id),

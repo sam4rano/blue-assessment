@@ -30,14 +30,14 @@ export const verifyOtp = async ({ otp }: OtpProps) => {
   };
   
 
-export const fetchBranchById = async (id: number) => {
+export const fetchBranchById = async (id: string) => {
   const response = await apiClient.get(
     `${API_ENDPOINTS.CONFIG.BRANCH}/get_branch/${id}`
   );
   return response.data;
 };
 
-export const fetchBranchDetails = async (id: number) => {
+export const fetchBranchDetails = async (id: string) => {
   const response = await apiClient.get(
     `${API_ENDPOINTS.CONFIG.BRANCH}/get_branch_details/${id}`
   );
@@ -52,7 +52,7 @@ export const fetchCashRequests = async (filters: Record<string, any> = {}) => {
   return response.data;
 };
 
-export const fetchCashRequestById = async (id: number) => {
+export const fetchCashRequestById = async (id: string) => {
   const response = await apiClient.get(
     `${API_ENDPOINTS.ORDER_DELIVERY.CASH_REQUEST}/get_by_id/${id}`
   );
@@ -67,7 +67,7 @@ export const createCashRequestOpsHead = async (data: any) => {
   return response.data;
 };
 
-export const fetchCurrencyById = async (id: number) => {
+export const fetchCurrencyById = async (id: string) => {
   const response = await apiClient.get(
     `${API_ENDPOINTS.CONFIG.CURRENCY}/get_currency_by_number/${id}`
   );

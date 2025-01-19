@@ -21,7 +21,7 @@ const Sidebar = () => {
   return (
     <div
       className="flex flex-col bg-grey-100 
-         max-w-[240px] w-full align-middle items-center min-h-screen"
+         max-w-[240px] w-full align-middle items-center min-h-screen py-5"
     >
       <div>
         {navData.map((data) => (

@@ -13,14 +13,14 @@ export const navData: navProps[] = [
   {
     id: 1,
     name: "Control Tower",
-    path: "/dashboard/control-tower",
+    path: "/dashboard",
     icon: <RiDashboard2Line />,
     items: [],
   },
   {
     id: 2,
     name: "Operations",
-    path: "/dashboard",
+    path: "",
     icon: <RiSlideshowLine />,
     items: [
       { id: 1, name: "Cash Request", path: "/dashboard/cash-request" },

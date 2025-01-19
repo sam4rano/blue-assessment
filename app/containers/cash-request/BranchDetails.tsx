@@ -64,7 +64,14 @@ const BranchDetails: React.FC<{ branchId: number }> = ({ branchId }) => {
           <h2 className="font-semibold text-gray-600">state name</h2>
           <p className="text-gray-800">{data?.response.state.name}</p>
         </div>
-       
+        <div>
+          <h2 className="font-semibold text-gray-600">Created At</h2>
+          <p className="text-gray-800">{new Date(data?.response.createdAt).toLocaleDateString()}</p>
+        </div>
+        <div>
+          <h2 className="font-semibold text-gray-600">Updated At</h2>
+          <p className="text-gray-800">{new Date(data?.response.updatedAt).toLocaleDateString()}</p>
+        </div>
       </div>
     </div>
   );

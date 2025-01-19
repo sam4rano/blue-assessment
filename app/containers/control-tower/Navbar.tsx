@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
 
         <div className="relative flex items-center justify-center w-10 h-10 bg-gray-100 rounded-[15px] cursor-pointer hover:bg-gray-200">
           <RiNotification3Fill className="w-5 h-5 text-brand_primary" />
-          <span className="absolute top-0 right-0 w-4 h-4 text-xs text-white bg-red-500  flex items-center justify-center">
+          <span className="absolute top-0 right-0 w-4 h-4 text-xs text-white bg-red-500 rounded-full flex items-center justify-center ">
             2
           </span>
         </div>

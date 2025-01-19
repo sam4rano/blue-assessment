@@ -10,6 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
+		body_text_dark:'#353535',
         brand_primary: "#055DAE",
 		brand_color_fill:"#0F3677",
         brand_primary_inverse: "#D2EAFF",

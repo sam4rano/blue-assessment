@@ -1,12 +1,16 @@
-import Container from '@/app/containers/dashboard/Container'
-import Navbar from '@/app/containers/dashboard/Navbar'
+import Container from '@/app/containers/control-tower/Container'
+import Navbar from '@/app/containers/control-tower/Navbar'
 import React from 'react'
 
 const page = () => {
+	// const cards = Array(5).fill("No operation actions for today");
+
   return (
 	<div>
 		<Navbar />
 		<Container />
+		
+
 	</div>
   )
 }

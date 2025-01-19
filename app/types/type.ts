@@ -32,4 +32,12 @@ interface subItemsProps {
   export interface OtpProps {
 	otp: string;
   }
+
+
+  export interface RequestProps {
+	status:string,
+	request:string,
+	type:string,
+	destination:string
+  }
   
