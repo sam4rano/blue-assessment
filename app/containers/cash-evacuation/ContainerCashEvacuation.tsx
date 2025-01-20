@@ -9,11 +9,11 @@ import TransactionTable from "./TransactionTable";
 
 const ContainerCashEvacuation = () => {
   const router = useRouter();
-  const params = useParams(); // Use params from the router
+  const params = useParams(); 
 
   const handleRoute = () => {
-    // Use `params.id` or replace it with a new ID dynamically
-    const id = params?.id || "default-id"; // Fallback if `id` isn't provided
+    
+    const id = params?.id || "default-id"; 
     router.push(`/dashboard/cash-evacuation/${id}`);
   };
 
