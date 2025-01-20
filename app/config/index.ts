@@ -93,7 +93,7 @@ export const fetchCashEvacuations = async (params: {
   return response.data;
 };
 
-export const fetchCashEvacuationById = async (id: number) => {
+export const fetchCashEvacuationById = async (id: string) => {
   const response = await apiClient.get(
     `${API_ENDPOINTS.ORDER_DELIVERY.CASH_EVACUATION}/get_by_id/${id}`
   );

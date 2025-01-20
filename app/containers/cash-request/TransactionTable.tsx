@@ -315,13 +315,14 @@ export function TransactionTable() {
     }
 
     // Date range filter
-    if (dateRange.startDate && dateRange.endDate) {
-      result = result.filter(
-        (item) =>
-          item.date >= dateRange.startDate && item.date <= dateRange.endDate
-      );
-    }
-
+	if (dateRange.startDate && dateRange.endDate) {
+		result = result.filter(
+		  (item) =>
+			item.date >= (dateRange.startDate ?? new Date(0)) && 
+			item.date <= (dateRange.endDate ?? new Date())
+		);
+	  }
+	  
     // Type/Status filter
     if (selectedType) {
       result = result.filter((item) => item.status === selectedType);

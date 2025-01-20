@@ -79,7 +79,7 @@ export const useCashEvacuationsQuery = (params: CashEvacuationParams = {}) => {
   });
 };
 
-export const useCashEvacuationByIdQuery = (id: number) => {
+export const useCashEvacuationByIdQuery = (id: string) => {
   return useQuery({
     queryKey: ["cashEvacuation", id],
     queryFn: () => fetchCashEvacuationById(id),

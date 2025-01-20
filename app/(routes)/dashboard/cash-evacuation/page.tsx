@@ -1,13 +1,11 @@
 import ContainerCashEvacuation from "@/app/containers/cash-evacuation/ContainerCashEvacuation";
 import Navbar from "@/app/containers/control-tower/Navbar";
 import Sidebar from "@/app/containers/control-tower/Sidebar";
-import React, { FC } from "react";
 
-interface titleProps {
-  title: string;
-}
 
-const page: FC<titleProps> = ({}) => {
+
+
+const page = () => {
   return (
     <>
       <Navbar />

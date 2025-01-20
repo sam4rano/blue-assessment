@@ -12,7 +12,7 @@ import { TableContainer } from "./TableContainer";
 const Container = () => {
   const cards = Array(5).fill("No operation actions for today");
 
-  const branchId = 201;
+  const branchId = "201";
   return (
     <div className="w-full flex flex-row h-min-screen py-5 bg-color_off_white">
       <div className="w-[270px] pr-5">

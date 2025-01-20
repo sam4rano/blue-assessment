@@ -2,12 +2,12 @@
 "use client";
 
 import { useBranchDetailsQuery } from "@/app/hooks/queries/useQuery";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { BsBank2 } from "react-icons/bs"; // Bank icon for the card
 
 
 interface BranchCardProps {
-	branchId: number;
+	branchId: string;
   }
 
 const BranchCard: FC<BranchCardProps> = ({branchId }) => {

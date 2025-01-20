@@ -1,5 +1,5 @@
 import BranchDetails from '@/app/containers/cash-request/BranchDetails'
-import ContentHeader from '@/app/containers/cash-request/ContentHeader'
+// import ContentHeader from '@/app/containers/cash-request/ContentHeader'
 import NewCashRequest from '@/app/containers/cash-request/NewCashRequest'
 import Navbar from '@/app/containers/control-tower/Navbar'
 import Sidebar from '@/app/containers/control-tower/Sidebar'
@@ -15,8 +15,8 @@ const page = () => {
     <Sidebar />
     </div>
     <div className='w-full '>
-		<ContentHeader title="Evacuation cash page" />
-		<BranchDetails branchId={1} />
+		
+		<BranchDetails branchId={"1"} />
     <NewCashRequest />
 	</div>
   </div>

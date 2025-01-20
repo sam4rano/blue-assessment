@@ -5,7 +5,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { useBranchQuery } from "@/app/hooks/queries/useQuery";
 
-const BranchDetails: React.FC<{ branchId: number }> = ({ branchId }) => {
+const BranchDetails: React.FC<{ branchId: string }> = ({ branchId }) => {
   const { data, isLoading, isError, error } = useBranchQuery(branchId);
 
   console.log("data list", data)
