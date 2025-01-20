@@ -7,7 +7,7 @@ interface OperationCardProps {
 
 const OperationCard: React.FC<OperationCardProps> = ({ message }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center w-full max-w-xs">
+    <div className="bg-white rounded-lg shadow-md p-4 flex flex-row py-8 items-center justify-center w-full max-w-xs gap-2 ">
       <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
         <RiQuestionLine className="text-gray-500 w-6 h-6" />
       </div>

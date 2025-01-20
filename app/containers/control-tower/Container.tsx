@@ -8,7 +8,6 @@ import OperationCard from "./OperationCard";
 import CashAnalytics from "./CashAnalytics";
 import RequestFilter from "./RequestFilter";
 import { TableContainer } from "./TableContainer";
-
 const Container = () => {
   const cards = Array(5).fill("No operation actions for today");
 
@@ -48,7 +47,7 @@ const Container = () => {
           </div>
         </div>
         <div className="p-2">
-          <h1 className="text-bold text-[32px] font-roboto">Operation Action</h1>
+          <h1 className="text-medium text-[20px] font-roboto mb-4">Operation Action</h1>
           <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-5 gap-2 ">
             {cards.map((message, index) => (
               <OperationCard key={index} message={message} />
@@ -56,11 +55,12 @@ const Container = () => {
           </div>
         </div>
         <CashAnalytics />
-        <div className="flex flex-col px-4 py-4 gap-y-4">
+        <div className="flex flex-col px-4 py-8 gap-y-4">
             <h1 className=" font-medium text-[20px] leading-[23px] font-roboto">Approve Request status</h1>
             <RequestFilter />
             <TableContainer />
           </div>
+        
 
       </div>
     </div>

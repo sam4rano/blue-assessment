@@ -46,7 +46,7 @@ const CashAnalytics = () => {
           onViewDetail={handleViewDetail}
         />
       </div>
-      <div className="w-[35%]">
+      <div className="w-[35%] h-full py-8">
         <ErrorCard onRefresh={handleRefresh} />
       </div>
     </div>

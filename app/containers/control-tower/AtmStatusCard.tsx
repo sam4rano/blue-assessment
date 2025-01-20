@@ -75,10 +75,13 @@ const ATMStatusCard: React.FC<ATMStatusCardProps> = ({
                 data={chartData.atmStatus}
                 dataKey="value"
                 cx="50%"
+                labelLine={false} 
                 cy="50%"
-                outerRadius={50}
+                innerRadius={40}
+          outerRadius={60}
+          paddingAngle={0}
                 fill="#8884d8"
-                label
+               
               >
                 {chartData.atmStatus.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -100,7 +103,7 @@ const ATMStatusCard: React.FC<ATMStatusCardProps> = ({
         {/* Cash Status */}
         <div className="bg-gray-50 p-4 rounded-xl border-[1px] flex-col gap-4">
           <h3 className="text-sm font-medium text-gray-700 mb-4">Cash Status</h3>
-		  <div className="flex flex-row gap-2">
+		  <div className="flex flex-row px-4 justify-center align-middle items-center gap-4">
 
           <ResponsiveContainer width="100%" height={150}>
             <PieChart>
@@ -109,9 +112,12 @@ const ATMStatusCard: React.FC<ATMStatusCardProps> = ({
                 dataKey="value"
                 cx="50%"
                 cy="50%"
-                outerRadius={50}
+                labelLine={false} 
+                innerRadius={40}
+                outerRadius={60}
+                paddingAngle={0}
                 fill="#8884d8"
-                label
+          
               >
                 {chartData.cashStatus.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

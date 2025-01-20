@@ -7,9 +7,9 @@ interface ErrorCardProps {
 
 const ErrorCard: React.FC<ErrorCardProps> = ({ onRefresh }) => {
   return (
-    <div className=" w-full bg-white rounded-lg flex flex-col items-center h-full">
+    <div className=" w-full  bg-white rounded-lg flex flex-col items-center h-full">
       {/* Icon Section */}
-      <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full">
+      <div className="flex items-center justify-center w-18 h-18 bg-gray-100 rounded-full">
         <RiFileSearchLine className="text-gray-500 w-10 h-10" />
       </div>
 
