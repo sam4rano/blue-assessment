@@ -23,6 +23,7 @@ export default {
         color_white: "#FFFFFF",
         color_off_white: "#F5F5F5",
         color_red: "#F6515B",
+		'color-grey-light':'#959595',
         "color_red-light": "#FFD5CC",
         "color_red-deep": "#FF7E62",
         "color_red-deeper": "#FF2D00",

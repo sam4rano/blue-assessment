@@ -16,10 +16,9 @@ const CashCard: React.FC<CashCardProps> = ({ type, amount, percentage, count, co
   const isWithdrawal = type === "withdrawal";
 
   return (
-    <div className="flex items-center bg-white rounded-lg shadow-md p-4 space-x-4 max-w-md">
-      {/* Icon Section */}
+    <div className="flex flex-row gap-x-2 items-center bg-white rounded-lg shadow-md p-4 max-w-md">
       <div
-        className={`flex items-center justify-center w-12 h-12 rounded-full ${
+        className={`flex items-center justify-center w-20 h-20 rounded-full ${
           isWithdrawal ? "bg-green-100" : "bg-red-100"
         }`}
       >
@@ -30,7 +29,6 @@ const CashCard: React.FC<CashCardProps> = ({ type, amount, percentage, count, co
         )}
       </div>
 
-      {/* Info Section */}
       <div className="flex-grow">
         <h4 className="text-gray-700 text-sm font-medium">
           {isWithdrawal ? "Cash Withdrawal" : "Cash Deposit"}

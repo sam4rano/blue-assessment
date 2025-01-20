@@ -35,37 +35,37 @@ const BranchCard: FC<BranchCardProps> = ({branchId }) => {
 
 
   return (
-    <div className="max-w-sm w-full bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="max-w-sm w-full bg-white rounded-lg shadow-md overflow-hidden font-roboto">
       {/* Top Section */}
       <div className="bg-blue-100 p-4 flex items-center space-x-4">
-        <BsBank2 className="text-blue-500 w-10 h-10" />
+        <BsBank2 className="text-blue-500 w-24 h-20" />
         <div>
-          <p className="text-sm text-gray-500">Tier {}</p>
-          {/* <h2 className="text-lg font-bold text-blue-900">name {data.response}</h2> */}
+          <p className="text-sm text-color-grey-light">Tier {}</p>
+          <h2 className="text-2xl font-bold text-brand_dark ">Yaba bank</h2>
         </div>
       </div>
-	  {data?.response.map((data:any) => (
+	  {/* {data?.response.map((data:any) => (
 		<div key={data.id}>
 			<li>{data.message}</li>
 
 		</div>
-	  ))}
+	  ))} */}
 
       {/* Bottom Section */}
-      {/* <div className="p-4 grid grid-cols-2 gap-y-2 text-sm text-gray-700">
+      <div className="p-4 grid grid-cols-2 gap-y-2 text-sm text-gray-700">
         <div>
-          <p className="font-medium">Address</p>
-          <p>{}</p>
+          <p className=" text-color-grey-light">Address</p>
+          <p className="text-body_text_dark text-base">Welcome</p>
         </div>
         <div>
-          <p className="font-medium">Region</p>
-          <p>{}</p>
+          <p className=" text-sm text-color-grey-light">Region</p>
+          <p className="text-body_text_dark text-base">Joae</p>
         </div>
         <div>
-          <p className="font-medium">Branch Code</p>
-          <p>{}</p>
+          <p className="text-sm text-color-grey-light">Branch Code</p>
+          <p className="text-body_text_dark text-base">104</p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

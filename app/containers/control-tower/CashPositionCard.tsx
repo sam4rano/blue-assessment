@@ -19,15 +19,15 @@ const CashPositionCard: React.FC<CashPositionCardProps> = ({
   const isPositive = change > 0;
 
   return (
-    <div className="bg-white rounded-lg flex flex-col gap-2 w-full">
+    <div className="bg-white rounded-lg flex flex-col justify-center align-middle items-center gap-2 w-full h-full">
      
-      <div className="flex items-center bg-blue-50 p-4 rounded-lg">
+      <div className="flex flex-row gap-4 justify-center align-middle items-center bg-blue-50 p-4 rounded-tr-[40px] rounded-bl-[40px] max-w-[300px] w-full">
        
-        <div className="flex items-center justify-center w-12 h-12 bg-blue-200 rounded-full">
+        <div className="flex items-center justify-center w-14 h-14 bg-blue-200 rounded-[15px]">
           <RiWallet2Line className="text-blue-600 w-6 h-6" />
         </div>
         {/* Info Section */}
-        <div className="flex-grow">
+        <div className="flex flex-col gap-2">
           <h4 className="text-sm font-medium text-gray-500">Cash Position</h4>
           <p className="text-2xl font-bold text-gray-800">{position}</p>
           <div
@@ -46,7 +46,7 @@ const CashPositionCard: React.FC<CashPositionCardProps> = ({
       </div>
 
       {/* Balance Section */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="flex flex-row gap-4">
         {/* Vault Balance */}
         <div className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-4">
           <p className="text-sm text-blue-800 font-medium">Vault Balance</p>

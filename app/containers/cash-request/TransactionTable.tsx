@@ -461,8 +461,8 @@ export function TransactionTable() {
       id: "actions",
       header: "Action",
       cell: () => (
-        <Button variant="ghost" size="icon">
-          <Eye className="w-4 h-4" />
+        <Button variant="ghost" size="icon" className="rounded-xl bg-brand_primary_inverse flex items-center justify-center text-base font-extrabold">
+          <Eye className="w-10 h-10" />
         </Button>
       ),
     },

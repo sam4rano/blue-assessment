@@ -15,14 +15,14 @@ const Container = () => {
   const branchId = "201";
   return (
     <div className="w-full flex flex-row h-min-screen py-5 bg-color_off_white">
-      <div className="w-[270px] pr-5">
+      <div className="w-[270px] pr-5 ">
         <Sidebar />
       </div>
-      <div className="w-full">
+      <div className="w-full py-5">
         <Header />
         <div className="w-full flex flex-row gap-2 py-4 px-2">
           <BranchCard branchId={branchId} />
-          <div className="w-full flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-4 h-full">
             <CashCard
               type="withdrawal"
               amount="₦117,420,000"
