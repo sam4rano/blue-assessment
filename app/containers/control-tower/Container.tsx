@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
@@ -8,8 +9,15 @@ import OperationCard from "./OperationCard";
 import CashAnalytics from "./CashAnalytics";
 import RequestFilter from "./RequestFilter";
 import { TableContainer } from "./TableContainer";
+
+
+
+
 const Container = () => {
   const cards = Array(5).fill("No operation actions for today");
+ 
+
+  // First query to get branch info
 
   const branchId = "201";
   return (

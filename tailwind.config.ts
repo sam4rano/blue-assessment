@@ -10,20 +10,20 @@ export default {
   theme: {
     extend: {
       colors: {
-		body_text_dark:'#353535',
+        body_text_dark: "#353535",
         brand_primary: "#055DAE",
-		brand_color_fill:"#0F3677",
+        brand_color_fill: "#0F3677",
         brand_primary_inverse: "#D2EAFF",
         brand_dark: "#052B4E",
         brand_green: "#D9F2EB",
         brand_green_text: "#28715C",
         primary_light: "#B0C4DE",
-		
+
         primary_lighter: "#F9FAFB",
         color_white: "#FFFFFF",
         color_off_white: "#F5F5F5",
         color_red: "#F6515B",
-		'color-grey-light':'#959595',
+        "color-grey-light": "#959595",
         "color_red-light": "#FFD5CC",
         "color_red-deep": "#FF7E62",
         "color_red-deeper": "#FF2D00",

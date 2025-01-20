@@ -11,6 +11,7 @@ interface BranchCardProps {
   }
 
 const BranchCard: FC<BranchCardProps> = ({branchId }) => {
+  
 	const { data, isLoading, isError, error } = useBranchDetailsQuery(branchId);
 
 	if (isLoading) {
@@ -31,7 +32,8 @@ const BranchCard: FC<BranchCardProps> = ({branchId }) => {
 
 	console.log("data",data)
 	console.log("data message",data.message)
-	console.log("data",data.response[0])
+	console.log("data response",data.response[0].address)
+  
 
 
   return (
@@ -41,29 +43,22 @@ const BranchCard: FC<BranchCardProps> = ({branchId }) => {
         <BsBank2 className="text-blue-500 w-24 h-20" />
         <div>
           <p className="text-sm text-color-grey-light">Tier {}</p>
-          <h2 className="text-2xl font-bold text-brand_dark ">Yaba bank</h2>
+          <h2 className="text-2xl font-medium text-brand_dark ">{data.response[0].name}</h2>
         </div>
       </div>
-	  {/* {data?.response.map((data:any) => (
-		<div key={data.id}>
-			<li>{data.message}</li>
-
-		</div>
-	  ))} */}
-
-      {/* Bottom Section */}
+	  
       <div className="p-4 grid grid-cols-2 gap-y-2 text-sm text-gray-700">
         <div>
           <p className=" text-color-grey-light">Address</p>
-          <p className="text-body_text_dark text-base">Welcome</p>
+          <p className="text-body_text_dark text-xs">{data.response[0].address}</p>
         </div>
         <div>
           <p className=" text-sm text-color-grey-light">Region</p>
-          <p className="text-body_text_dark text-base">Joae</p>
+          <p className="text-body_text_dark text-xs">{data.response[0].region.name}</p>
         </div>
         <div>
           <p className="text-sm text-color-grey-light">Branch Code</p>
-          <p className="text-body_text_dark text-base">104</p>
+          <p className="text-body_text_dark text-base">{data.response[0].code}</p>
         </div>
       </div>
     </div>

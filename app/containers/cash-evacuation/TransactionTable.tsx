@@ -36,9 +36,8 @@ import {
 } from "@/components/ui/popover";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
-import { DateRange, Transaction } from "@/app/types/type";
+import { DateRange, TransactionEvacuation } from "@/app/types/type";
 
-// Define interfaces and types
 
 
 // Enhanced SearchFilterBar with DatePicker
@@ -144,9 +143,9 @@ export function TransactionTable() {
   });
   const [selectedType, setSelectedType] = useState("");
   const [globalFilter, setGlobalFilter] = useState("");
-  const [filteredData, setFilteredData] = useState<Transaction[]>([]);
+  const [filteredData, setFilteredData] = useState<TransactionEvacuation[]>([]);
 
-  const data = useMemo<Transaction[]>(
+  const data = useMemo<TransactionEvacuation[]>(
     () => [
       {
         originator: {
@@ -154,7 +153,7 @@ export function TransactionTable() {
           id: "TI-338-3737-2882",
         },
         fromBranch: "Oke Arin Br.",
-        toBranch: "Adeola Odeku Br.",
+
         code: "CRQ-36941",
         amount: 38995000,
         currency: "Nigerian Naira (NGN)",
@@ -167,7 +166,7 @@ export function TransactionTable() {
           id: "TI-948-3829-2738",
         },
         fromBranch: "Enugu Br.",
-        toBranch: "Onitsha Br.",
+        
         code: "CRQ-83947",
         amount: 450000,
         currency: "British Pounds (GBP)",
@@ -180,7 +179,7 @@ export function TransactionTable() {
           id: "TI-394-4829-3847",
         },
         fromBranch: "Ibadan Br.",
-        toBranch: "Oyo Br.",
+    
         code: "CRQ-59473",
         amount: 1045000,
         currency: "Canadian Dollars (CAD)",
@@ -193,7 +192,7 @@ export function TransactionTable() {
           id: "TI-847-2950-4859",
         },
         fromBranch: "Abuja Central Br.",
-        toBranch: "Kano Br.",
+       
         code: "CRQ-48594",
         amount: 2234500,
         currency: "Japanese Yen (JPY)",
@@ -206,7 +205,7 @@ export function TransactionTable() {
           id: "TI-493-8493-3748",
         },
         fromBranch: "Ikeja Br.",
-        toBranch: "Victoria Island Br.",
+       
         code: "CRQ-93748",
         amount: 7845000,
         currency: "United States Dollar (USD)",
@@ -219,7 +218,7 @@ export function TransactionTable() {
           id: "TI-274-4920-3847",
         },
         fromBranch: "Ajah Br.",
-        toBranch: "Ikoyi Br.",
+        
         code: "CRQ-74829",
         amount: 3250000,
         currency: "Swiss Franc (CHF)",
@@ -232,7 +231,7 @@ export function TransactionTable() {
           id: "TI-129-2394-4598",
         },
         fromBranch: "Marina Br.",
-        toBranch: "Lekki Phase 1 Br.",
+        
         code: "CRQ-48293",
         amount: 1500000,
         currency: "Australian Dollar (AUD)",
@@ -245,7 +244,7 @@ export function TransactionTable() {
           id: "TI-583-9472-3850",
         },
         fromBranch: "Port Harcourt Br.",
-        toBranch: "Calabar Br.",
+       
         code: "CRQ-29483",
         amount: 1200000,
         currency: "South African Rand (ZAR)",
@@ -258,7 +257,7 @@ export function TransactionTable() {
           id: "TI-483-5739-4957",
         },
         fromBranch: "Ibadan Br.",
-        toBranch: "Ilorin Br.",
+        
         code: "CRQ-74839",
         amount: 2150000,
         currency: "Euro (EUR)",
@@ -271,7 +270,7 @@ export function TransactionTable() {
           id: "TI-293-8495-5847",
         },
         fromBranch: "Enugu Br.",
-        toBranch: "Owerri Br.",
+        
         code: "CRQ-94857",
         amount: 980000,
         currency: "Chinese Yuan (CNY)",
@@ -293,7 +292,6 @@ export function TransactionTable() {
         (item) =>
           item.code.toLowerCase().includes(searchTerm) ||
           item.fromBranch.toLowerCase().includes(searchTerm) ||
-          item.toBranch.toLowerCase().includes(searchTerm) ||
           item.amount.toString().includes(searchTerm)
       );
     }
@@ -316,7 +314,7 @@ export function TransactionTable() {
   }, [globalFilter, dateRange, selectedType, data]); // data is now memoized
 
   // Column definitions
-  const columns: ColumnDef<Transaction>[] = [
+  const columns: ColumnDef<TransactionEvacuation>[] = [
     {
       accessorKey: "originator",
       header: ({ column }) => (
@@ -360,19 +358,7 @@ export function TransactionTable() {
         </Button>
       ),
     },
-    {
-      accessorKey: "toBranch",
-      header: ({ column }) => (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center gap-1 text-sm text-grey_100"
-        >
-          To Branch
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      ),
-    },
+   
     {
       accessorKey: "code",
       header: ({ column }) => (

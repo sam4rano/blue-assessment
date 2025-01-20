@@ -3,7 +3,8 @@
 import React from "react";
 import { useRouter, useParams } from "next/navigation";
 import ContentHeader from "../cash-request/ContentHeader";
-import TransactionTable from "../cash-request/TransactionTable";
+import TransactionTable from "./TransactionTable";
+
 
 
 const ContainerCashEvacuation = () => {
