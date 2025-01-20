@@ -17,9 +17,9 @@ const Container = () => {
       <div className="w-[270px] pr-5 ">
         <Sidebar />
       </div>
-      <div className="w-full py-5">
+      <div className="w-full py-5 flex flex-col gap-y-6">
         <Header />
-        <div className="w-full flex flex-row gap-2 py-4 px-2">
+        <div className="w-full flex flex-row gap-2 px-2">
           <BranchCard branchId={branchId} />
           <div className="w-full flex flex-col gap-4 h-full">
             <CashCard
@@ -46,8 +46,8 @@ const Container = () => {
             />
           </div>
         </div>
-        <div className="p-2">
-          <h1 className="text-medium text-[20px] font-roboto mb-4">Operation Action</h1>
+        <div className="flex flex-col gap-y-4">
+          <h1 className="text-medium text-xl font-roboto ">Operation Action</h1>
           <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-5 gap-2 ">
             {cards.map((message, index) => (
               <OperationCard key={index} message={message} />
@@ -55,7 +55,8 @@ const Container = () => {
           </div>
         </div>
         <CashAnalytics />
-        <div className="flex flex-col px-4 py-8 gap-y-4">
+
+        <div className="flex flex-col gap-y-4">
             <h1 className=" font-medium text-[20px] leading-[23px] font-roboto">Approve Request status</h1>
             <RequestFilter />
             <TableContainer />

@@ -81,13 +81,13 @@ const NewCashRequest = () => {
           />
         </div>
         {amount && (
-          <div className="mb-4">
+          <div className="mb-4 flex flex-col justify-end items-end">
             <h3 className="text-sm font-medium text-gray-700 mb-2">
               Denominations
             </h3>
             <div className="space-y-2">
               {denominations.map((denomination, index) => (
-                <div key={denomination} className="flex items-center space-x-2">
+                <div key={denomination} className="flex justify-end">
                   <span className="w-16 px-4 py-2 border rounded-lg bg-gray-100 text-center">
                     ₦{denomination}
                   </span>

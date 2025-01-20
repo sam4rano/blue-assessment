@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -12,10 +12,10 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
-import { CheckCircle, Clock, RefreshCcw, XCircle } from "lucide-react"
+} from "@tanstack/react-table";
+import { CheckCircle, Clock, RefreshCcw, XCircle } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 // import { Checkbox } from "@/components/ui/checkbox"
 
 import {
@@ -25,7 +25,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 export type Payment = {
   id: string;
@@ -106,7 +106,9 @@ export const columns: ColumnDef<Payment>[] = [
       };
 
       return (
-        <div className={`flex items-center gap-2 ${statusConfig[status].color}`}>
+        <div
+          className={`flex items-center gap-2 ${statusConfig[status].color}`}
+        >
           {statusConfig[status].icon}
           <span className="capitalize">{statusConfig[status].label}</span>
         </div>
@@ -130,17 +132,16 @@ export const columns: ColumnDef<Payment>[] = [
       <div className="capitalize">{row.getValue("destination")}</div>
     ),
   },
- 
 ];
 
 export function TableContainer() {
-  const [sorting, setSorting] = React.useState<SortingState>([])
+  const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
-  )
+  );
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
 
   const table = useReactTable({
     data,
@@ -159,11 +160,10 @@ export function TableContainer() {
       columnVisibility,
       rowSelection,
     },
-  })
+  });
 
   return (
     <div className="w-full ">
-      
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -179,7 +179,7 @@ export function TableContainer() {
                             header.getContext()
                           )}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
@@ -214,30 +214,29 @@ export function TableContainer() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+      <div className="flex flex-row justify-between  items-center py-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <div className="text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <div className="space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Next
-          </Button>
-        </div>
+
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
       </div>
     </div>
-  )
+  );
 }
